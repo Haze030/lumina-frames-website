@@ -175,7 +175,7 @@ footer div{display:flex;gap:24px}
 .lb.open{display:flex}
 .lb .box{position:relative;height:min(86vh,1100px);aspect-ratio:9/16;max-width:100%}
 .lb .box.wide{height:auto;width:min(1200px,100%);aspect-ratio:16/9}
-.lb iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.lb iframe,.lb video{position:absolute;inset:0;width:100%;height:100%;border:0;background:#000}
 .lb button{all:unset;position:fixed;top:24px;right:28px;cursor:pointer;color:#fff;font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
 
 @media (max-width:600px){.l1,.l2{font-size:min(12vw,9vh)}.zt{font-size:21vw}.tl{--tt:calc(var(--tlt) + max(30px,var(--tlh)) * 1.9 + 92px)}}
@@ -217,9 +217,9 @@ footer div{display:flex;gap:24px}
 <section class="intro" id="intro" data-scene="Szene 01 · Blende">
   <div class="wall" id="wall">
     <div class="cell"><video data-src="1222856719.mp4" poster="1222856719.webp" muted loop playsinline preload="none"></video></div>
-    <div class="cell"><video data-src="1228589031.mp4" poster="1228589031.webp" muted loop playsinline preload="none"></video></div>
+    <div class="cell"><video data-src="purenorth.mp4" poster="purenorth.webp" muted loop playsinline preload="none"></video></div>
     <div class="cell"><video data-src="1222856400.mp4" poster="1222856400.webp" muted loop playsinline preload="none"></video></div>
-    <div class="cell"><video data-src="1230952837.mp4" poster="1230952837.webp" muted loop playsinline preload="none"></video></div>
+    <div class="cell"><video data-src="1222857311.mp4" poster="1222857311.webp" muted loop playsinline preload="none"></video></div>
     <div class="cell"><video data-src="1222855889.mp4" poster="1222855889.webp" muted loop playsinline preload="none"></video></div>
   </div>
   <div class="stack">
@@ -270,9 +270,9 @@ footer div{display:flex;gap:24px}
   <div class="track" id="track">
     <div class="ruler"></div>
     <div class="tclip" data-id="1222856719" data-h="4d0a3329f7"><div class="v"><video data-src="1222856719.mp4" poster="1222856719.webp" muted loop playsinline preload="none" aria-label="Performance-Ad"></video></div><div class="cap"><b>Performance-Ad</b><span>E-Com</span></div></div>
-    <div class="tclip" data-id="1228589031" data-h="0fc0c8339d"><div class="v"><video data-src="1228589031.mp4" poster="1228589031.webp" muted loop playsinline preload="none" aria-label="KI-Spot"></video></div><div class="cap"><b>KI-Spot</b><span>Animation</span></div></div>
+    <div class="tclip" data-mp4="purenorth-full.mp4"><div class="v"><video data-src="purenorth.mp4" poster="purenorth.webp" muted loop playsinline preload="none" aria-label="KI-Ad Shilajit"></video></div><div class="cap"><b>KI-Ad</b><span>Supplements</span></div></div>
     <div class="tclip" data-id="1222856400" data-h="a8d2910c33"><div class="v"><video data-src="1222856400.mp4" poster="1222856400.webp" muted loop playsinline preload="none" aria-label="Talking Head"></video></div><div class="cap"><b>Talking Head</b><span>UGC</span></div></div>
-    <div class="tclip" data-id="1230952837" data-h="a5497f061d"><div class="v"><video data-src="1230952837.mp4" poster="1230952837.webp" muted loop playsinline preload="none" aria-label="Experten-Reaction"></video></div><div class="cap"><b>Experten-Reaction</b><span>KI-UGC</span></div></div>
+    <div class="tclip" data-id="1222857311"><div class="v"><video data-src="1222857311.mp4" poster="1222857311.webp" muted loop playsinline preload="none" aria-label="Retention-Edit"></video></div><div class="cap"><b>Retention-Edit</b><span>Podcast</span></div></div>
     <div class="tclip" data-id="1230958499" data-h="24388f79a9"><div class="v"><video data-src="1230958499.mp4" poster="1230958499.webp" muted loop playsinline preload="none" aria-label="KI-Song"></video></div><div class="cap"><b>KI-Spot mit Song</b><span>Animation</span></div></div>
     <div class="tclip" data-id="1222855889" data-h="8156d71b03"><div class="v"><video data-src="1222855889.mp4" poster="1222855889.webp" muted loop playsinline preload="none" aria-label="UGC-Ad"></video></div><div class="cap"><b>UGC-Ad</b><span>Supplements</span></div></div>
   </div>
@@ -280,8 +280,8 @@ footer div{display:flex;gap:24px}
 
 <!-- 4 · Zoom durch den Buchstaben -->
 <section class="zoom" id="zoom" data-scene="Szene 04 · Reichweite">
-  <img class="zbg" src="1228589031-bg.jpg" alt="" loading="lazy">
-  <video class="zv" data-src="1228589031-hd.mp4" poster="1228589031.webp" muted loop playsinline preload="none"></video>
+  <img class="zbg" src="purenorth-bg.jpg" alt="" loading="lazy">
+  <video class="zv" data-src="purenorth-hd.mp4" poster="purenorth.webp" muted loop playsinline preload="none"></video>
   <div class="zk" id="zk"><div class="big zt" id="zt">S<span id="zi">I</span>CHTBAR</div></div>
   <div class="zl" id="zl"><div class="label">Was am Ende zählt</div><div class="big">Content, den man <span class="it amber">nicht wegwischt</span></div></div>
 </section>
@@ -477,7 +477,7 @@ if(matchMedia('(pointer:fine)').matches){
 const lb=$('#lb'),box=$('#lbbox');
 $$('.tclip').forEach(c=>c.addEventListener('click',()=>{
   box.className='box'+(c.classList.contains('wide')?' wide':'');
-  box.innerHTML='<iframe src="'+V+c.dataset.id+'?h='+c.dataset.h+'&autoplay=1&title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture"></iframe>';
+  box.innerHTML=c.dataset.mp4?'<video src="'+c.dataset.mp4+'" controls autoplay playsinline></video>':'<iframe src="'+V+c.dataset.id+'?'+(c.dataset.h?'h='+c.dataset.h+'&':'')+'autoplay=1&title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture"></iframe>';
   lb.classList.add('open');
 }));
 let was=[];const close=()=>{lb.classList.remove('open');box.innerHTML='';was.forEach(playV);was=[]};
