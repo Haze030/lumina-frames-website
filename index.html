@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lumina Frames · Content Partner für Unternehmer und Brands</title>
+<meta name="description" content="Du nimmst einen Vormittag im Monat auf, ich mache daraus YouTube-Videos, Reels und Ads. Content Partner für Unternehmer, Coaches und Brands im DACH-Raum.">
+<link rel="icon" href="lumina-frames-icon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0A0B0E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lumina Frames · Ein Vormittag Aufnahme. Ein Monat Content.">
+<meta property="og:description" content="Content Partner für Unternehmer und Coaches, Performance Ads für Brands. Videos, Reels und Ads aus einem Vormittag Aufnahme im Monat.">
+<link rel="preload" href="Manrope-ExtraBold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="InstrumentSerif-Italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="gsap.min.js" as="script">
+<link rel="preload" href="ScrollTrigger.min.js" as="script">
+<style>
+@font-face{font-family:Manrope;font-weight:400;font-display:swap;src:url(Manrope-Regular.woff2) format("woff2")}
+@font-face{font-family:Manrope;font-weight:500 600;font-display:swap;src:url(Manrope-Medium.woff2) format("woff2")}
+@font-face{font-family:Manrope;font-weight:700;font-display:swap;src:url(Manrope-Bold.woff2) format("woff2")}
+@font-face{font-family:Manrope;font-weight:800;font-display:swap;src:url(Manrope-ExtraBold.woff2) format("woff2")}
+@font-face{font-family:Serif;font-style:italic;font-display:swap;src:url(InstrumentSerif-Italic.woff2) format("woff2")}
+
+:root{--bg:#0A0B0E;--ink:#F7F3EC;--grey:#8A8E96;--rule:rgba(247,243,236,.12);--amber:#FFB23F;--rec:#FF3B30;--pad:clamp(16px,4vw,56px)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:clip}
+body{background:var(--bg);color:var(--ink);font-family:Manrope,system-ui,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+.it{font-family:Serif,Georgia,serif;font-style:italic;font-weight:400;text-transform:none;letter-spacing:-.01em}
+.amber{color:var(--amber)}
+.mono{font-variant-numeric:tabular-nums;letter-spacing:.08em}
+.label{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--grey)}
+.big{font-weight:800;text-transform:uppercase;letter-spacing:-.045em;line-height:.86}
+
+/* Filmkorn */
+.grain{position:fixed;inset:-50%;z-index:90;pointer-events:none;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:grain .9s steps(6) infinite}
+@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-4%,3%)}40%{transform:translate(3%,-2%)}60%{transform:translate(-2%,-4%)}80%{transform:translate(4%,2%)}100%{transform:translate(0,0)}}
+
+/* Sucher-HUD */
+.hud{position:fixed;inset:14px;z-index:80;pointer-events:none;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;mix-blend-mode:difference;color:#fff}
+.hud i{position:absolute;width:26px;height:26px;border-color:#fff;border-style:solid;border-width:0}
+.hud .c1{top:0;left:0;border-top-width:2px;border-left-width:2px}
+.hud .c2{top:0;right:0;border-top-width:2px;border-right-width:2px}
+.hud .c3{bottom:0;left:0;border-bottom-width:2px;border-left-width:2px}
+.hud .c4{bottom:0;right:0;border-bottom-width:2px;border-right-width:2px}
+.hud span{position:absolute}
+.hud .rec{top:8px;left:40px;display:flex;align-items:center;gap:8px}
+.hud .rec b{width:9px;height:9px;border-radius:50%;background:var(--rec);animation:blink 1.2s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+.hud .fps{top:8px;right:40px}
+.hud .tc{bottom:8px;left:40px}
+.hud .scene{bottom:8px;right:40px}
+.hud .cross{top:40%;left:50%;width:18px;height:18px;transform:translate(-50%,-50%);opacity:.5}
+.hud .cross::before,.hud .cross::after{content:"";position:absolute;background:#fff}
+.hud .cross::before{left:50%;top:0;bottom:0;width:1px}
+.hud .cross::after{top:50%;left:0;right:0;height:1px}
+
+/* Kopf */
+header{position:fixed;top:44px;left:var(--pad);right:var(--pad);z-index:70;display:flex;justify-content:space-between;align-items:center;color:#fff;text-shadow:0 1px 12px rgba(0,0,0,.5)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:15px;letter-spacing:.02em;text-transform:uppercase}
+.brand img{width:22px;height:22px}
+header a.k{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;background:var(--amber);color:var(--bg);padding:11px 18px;border-radius:999px;text-shadow:none;transition:transform .2s}
+header a.k:hover{transform:scale(1.05)}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--amber);color:var(--bg);font-weight:800;font-size:14px;letter-spacing:.1em;text-transform:uppercase;padding:18px 28px;border-radius:999px;pointer-events:auto;transition:transform .2s}
+.btn:hover{transform:scale(1.04)}
+
+/* 1 · Blende */
+.intro{position:relative;height:100vh;height:100svh;overflow:hidden}
+.wall{position:absolute;inset:0;display:grid;grid-template-columns:repeat(5,1fr);clip-path:circle(0px at 50% 40%);will-change:clip-path}
+.cell{position:relative;overflow:hidden;background:#111}
+.cell video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.wall::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(10,11,14,.42),rgba(10,11,14,.78))}
+.stack{position:absolute;inset:0;z-index:4;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(4px,1.4vh,16px);padding:clamp(84px,12vh,110px) var(--pad) clamp(40px,7vh,72px);pointer-events:none}
+.iris{position:relative;flex:none;width:min(24vw,19vh,150px);height:min(24vw,19vh,150px);z-index:3}
+.iris rect{transform-box:view-box}
+.iris .blades{transform-origin:128px 128px}
+.l1,.l2{position:relative;text-align:center;font-size:max(34px,min(8.5vw,12vh,140px));pointer-events:none}
+.l2{padding-bottom:.14em}
+.l3{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;z-index:5;font-size:clamp(46px,11vw,190px);opacity:0;pointer-events:none}
+.l3{text-shadow:0 2px 30px rgba(0,0,0,.6)}
+.shade{position:absolute;inset:0;z-index:4;opacity:0;pointer-events:none;background:radial-gradient(ellipse 62% 58% at 50% 50%,rgba(10,11,14,.9) 0%,rgba(10,11,14,.78) 45%,rgba(10,11,14,.3) 100%)}
+.l3 .btn{margin-top:36px;font-size:14px}
+.pitch{position:relative;display:flex;flex-direction:column;align-items:center;gap:clamp(10px,2vh,18px);text-align:center;margin-top:clamp(6px,2.4vh,32px)}
+@media (max-height:640px){.pitch .label{display:none}.pitch .btn{padding:14px 24px}}
+.pitch p{font-size:clamp(15px,1.25vw,18px);color:var(--ink);max-width:780px;opacity:.9}
+.pitch p b{font-weight:800}
+.l3 small{display:block;font-size:clamp(16px,1.5vw,21px);font-weight:600;letter-spacing:0;text-transform:none;line-height:1.5;color:var(--ink);max-width:560px;margin:28px auto 0}
+
+
+/* 2 · Schnitte */
+.cuts{position:relative;height:100vh;height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.cuts .label{position:absolute;top:22vh;left:0;right:0}
+.cuts .word{font-size:clamp(58px,15vw,260px);will-change:transform}
+.cuts .count{position:absolute;top:auto;bottom:20vh;left:0;right:0}
+.flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none;z-index:2}
+
+/* 3 · Timeline */
+.tl{position:relative;height:100vh;height:100svh;overflow:hidden;--tlt:max(104px,11vh);--tlh:min(5vw,8.5vh,72px);--tt:calc(var(--tlt) + var(--tlh) * .95 + 92px)}
+.tl-head{position:absolute;top:var(--tlt);left:var(--pad);right:var(--pad);display:flex;justify-content:space-between;align-items:end;gap:20px;z-index:3}
+.tl-head h2{font-size:max(30px,var(--tlh))}
+.track{position:absolute;top:var(--tt);left:0;display:flex;gap:28px;align-items:flex-end;padding-left:50vw;will-change:transform}
+.ruler{position:absolute;top:-34px;left:0;right:0;height:22px;background:repeating-linear-gradient(90deg,rgba(247,243,236,.35) 0 1px,transparent 1px 12px),repeating-linear-gradient(90deg,rgba(247,243,236,.7) 0 1px,transparent 1px 120px);background-size:auto 8px,auto 22px;background-repeat:repeat-x;background-position:0 100%,0 100%}
+.tclip{flex:none;height:min(56vh,calc(100vh - var(--tt) - 96px));min-height:150px;cursor:pointer;transform-origin:50% 100%;will-change:transform,opacity}
+.tclip .v{position:relative;height:100%;aspect-ratio:9/16;overflow:hidden;background:#15171c;border-radius:4px}
+.tclip.wide .v{aspect-ratio:16/9}
+.tclip video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.tclip .cap{display:flex;justify-content:space-between;gap:12px;padding-top:12px;font-size:13px;color:var(--grey);white-space:nowrap}
+.tclip .cap b{color:var(--ink);font-weight:700}
+.playhead{position:absolute;top:calc(var(--tt) - 48px);bottom:max(9vh,56px);left:50%;width:2px;background:var(--amber);z-index:4;transform:translateX(-1px)}
+.playhead::before{content:"";position:absolute;top:-2px;left:50%;width:16px;height:16px;background:var(--amber);transform:translateX(-50%);clip-path:polygon(0 0,100% 0,100% 60%,50% 100%,0 60%)}
+.playhead span{position:absolute;top:-30px;left:12px;font-size:12px;font-weight:700;color:var(--amber);white-space:nowrap}
+
+/* 4 · Zoom */
+.zoom{position:relative;height:100vh;height:100svh;overflow:hidden;isolation:isolate;background:#000}
+.zbg{position:absolute;inset:-4%;width:108%;height:108%;object-fit:cover}
+.zv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@media (min-aspect-ratio:4/5){.zv{object-fit:contain;object-position:76% 50%}}
+.zk{position:absolute;inset:0;background:var(--bg);mix-blend-mode:multiply;display:flex;align-items:center;justify-content:center;will-change:transform}
+.zt{color:#fff;font-size:min(17vw,34vh);letter-spacing:-.05em;line-height:.8;white-space:nowrap}
+.zl{position:absolute;left:var(--pad);right:var(--pad);bottom:max(12vh,64px);max-width:min(52vw,900px);z-index:2;opacity:0;text-shadow:0 2px 30px rgba(0,0,0,.75)}
+.zl .big{font-size:max(36px,min(6vw,11vh,104px));margin-top:14px}
+@media (max-aspect-ratio:4/5){.zl{max-width:none}}
+.zoom::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:var(--zs,0);background:linear-gradient(90deg,rgba(10,11,14,.8),rgba(10,11,14,.15) 60%,rgba(10,11,14,0))}
+@media (max-aspect-ratio:4/5){.zoom::after{background:linear-gradient(0deg,rgba(10,11,14,.85),rgba(10,11,14,0) 60%)}}
+
+/* 5 · Leistungen */
+.sec{padding:160px var(--pad)}
+.svc{display:grid;grid-template-columns:120px 1fr;gap:24px;padding:48px 0;border-top:1px solid var(--rule)}
+.svc:last-child{border-bottom:1px solid var(--rule)}
+.svc .n{padding-top:18px}
+.svc h3{font-size:clamp(52px,9vw,150px);color:transparent;-webkit-text-stroke:1.5px rgba(247,243,236,.55);background:linear-gradient(90deg,var(--ink) 50%,transparent 50%) 100% 0/200% 100% no-repeat;-webkit-background-clip:text;background-clip:text}
+.svc .body{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:28px;max-width:1100px}
+.svc p{color:var(--grey)}
+.svc .incl{font-size:15px;line-height:2}
+
+/* 5 · Stimmen */
+.q{font-size:clamp(30px,4.4vw,68px);font-weight:700;letter-spacing:-.03em;line-height:1.1;max-width:1250px}
+.q .w{opacity:.14;transition:none}
+.attr{margin-top:28px;font-size:15px;color:var(--grey)}
+.attr b{color:var(--ink)}
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:100px}
+.quotes div{border-top:1px solid var(--rule);padding-top:24px}
+.quotes blockquote{font-size:24px;line-height:1.3;margin-bottom:14px}
+.quotes span{font-size:14px;color:var(--grey)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);margin-top:100px;border-top:1px solid var(--rule)}
+.stats div{padding:32px 0 0}
+.stats b{display:block;font-size:clamp(56px,8vw,128px);font-weight:800;letter-spacing:-.05em;line-height:1}
+.stats span{color:var(--grey);font-size:15px}
+
+/* 6 · Ablauf */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+.step{border:1px solid var(--rule);padding:28px;min-height:320px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.step .top{display:flex;justify-content:space-between}
+.step h3{font-size:clamp(34px,3.4vw,52px);line-height:.95;margin-bottom:14px}
+.step p{color:var(--grey)}
+.step::before{content:"";position:absolute;left:0;top:0;height:2px;width:var(--p,0%);background:var(--amber)}
+
+/* 7 · Kontakt */
+.contact{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px var(--pad) 40px;position:relative}
+.contact h2{font-size:clamp(70px,17vw,300px)}
+.contact .row{display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;margin-top:56px}
+.contact .mail{font-size:clamp(22px,3vw,40px);font-weight:700;border-bottom:2px solid var(--amber);padding-bottom:4px}
+.mag{display:inline-flex;align-items:center;justify-content:center;width:190px;height:190px;border-radius:50%;background:var(--amber);color:var(--bg);font-weight:800;font-size:15px;letter-spacing:.06em;text-transform:uppercase;text-align:center;line-height:1.2;will-change:transform}
+footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid var(--rule);padding-top:24px;margin-top:100px;font-size:14px;color:var(--grey)}
+footer div{display:flex;gap:24px}
+
+/* Cursor */
+.cur{position:fixed;left:0;top:0;width:36px;height:36px;margin:-18px 0 0 -18px;border:1.5px solid #fff;border-radius:50%;z-index:95;pointer-events:none;mix-blend-mode:difference;display:none;align-items:center;justify-content:center;font-size:11px;font-weight:800;letter-spacing:.1em;color:#fff;transition:width .25s,height .25s,margin .25s,background .25s}
+.cur.on{width:88px;height:88px;margin:-44px 0 0 -44px;background:#fff;color:#000}
+.cur span{opacity:0}.cur.on span{opacity:1}
+@media (pointer:fine){.cur{display:flex}}
+
+/* Lightbox */
+.lb{position:fixed;inset:0;z-index:100;background:rgba(5,5,7,.95);display:none;align-items:center;justify-content:center;padding:24px}
+.lb.open{display:flex}
+.lb .box{position:relative;height:min(86vh,1100px);aspect-ratio:9/16;max-width:100%}
+.lb .box.wide{height:auto;width:min(1200px,100%);aspect-ratio:16/9}
+.lb iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.lb button{all:unset;position:fixed;top:24px;right:28px;cursor:pointer;color:#fff;font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+
+@media (max-width:600px){.l1,.l2{font-size:min(12vw,9vh)}.zt{font-size:21vw}.tl{--tt:calc(var(--tlt) + max(30px,var(--tlh)) * 1.9 + 92px)}}
+@media (max-width:900px){
+  .wall{grid-template-columns:repeat(3,1fr)}
+  .wall .cell:nth-child(n+4){display:none}
+  .hud .fps,.hud .cross{display:none}
+  .svc{grid-template-columns:1fr}
+  .svc h3{font-size:clamp(34px,12.5vw,52px)}
+  .svc .n{padding:0}
+  .svc .body,.quotes,.steps{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr}
+  .sec{padding:110px var(--pad)}
+  .tclip{height:min(50vh,calc(100vh - var(--tt) - 96px))}
+  .mag{width:150px;height:150px}
+}
+@media (prefers-reduced-motion:reduce){.grain,.hud .rec b{animation:none}}
+</style>
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="hud" aria-hidden="true">
+  <i class="c1"></i><i class="c2"></i><i class="c3"></i><i class="c4"></i>
+  <span class="rec"><b></b>Rec</span>
+  <span class="fps">4K · 25 fps</span>
+  <span class="tc mono" id="tc">00:00:00:00</span>
+  <span class="scene" id="scene">Szene 01 · Blende</span>
+  <span class="cross"></span>
+</div>
+<div class="cur" id="cur"><span>Play</span></div>
+
+<header>
+  <a href="#" class="brand"><img src="lumina-frames-icon.svg" alt="">Lumina Frames</a>
+  <a href="#kontakt" class="k">Erstgespräch</a>
+</header>
+
+<!-- 1 · Blende öffnet sich -->
+<section class="intro" id="intro" data-scene="Szene 01 · Blende">
+  <div class="wall" id="wall">
+    <div class="cell"><video data-src="1222856719.mp4" poster="1222856719.webp" muted loop playsinline preload="none"></video></div>
+    <div class="cell"><video data-src="1228589031.mp4" poster="1228589031.webp" muted loop playsinline preload="none"></video></div>
+    <div class="cell"><video data-src="1222856400.mp4" poster="1222856400.webp" muted loop playsinline preload="none"></video></div>
+    <div class="cell"><video data-src="1230952837.mp4" poster="1230952837.webp" muted loop playsinline preload="none"></video></div>
+    <div class="cell"><video data-src="1222855889.mp4" poster="1222855889.webp" muted loop playsinline preload="none"></video></div>
+  </div>
+  <div class="stack">
+  <div class="big l1" id="l1">Ein Vormittag</div>
+  <svg class="iris" id="iris" viewBox="0 0 256 256" aria-hidden="true">
+    <g transform="translate(128 128)">
+      <g class="blades" id="blades" fill="none" stroke="#FFB23F" stroke-width="9.52" stroke-linejoin="round">
+        <g transform="rotate(0)"><rect class="bl" x="-24.64" y="-107.24" width="49.28" height="69.44" rx="7.84"/></g>
+        <g transform="rotate(60)"><rect class="bl" x="-24.64" y="-107.24" width="49.28" height="69.44" rx="7.84"/></g>
+        <g transform="rotate(120)"><rect class="bl" x="-24.64" y="-107.24" width="49.28" height="69.44" rx="7.84"/></g>
+        <g transform="rotate(180)"><rect class="bl" x="-24.64" y="-107.24" width="49.28" height="69.44" rx="7.84"/></g>
+        <g transform="rotate(240)"><rect class="bl" x="-24.64" y="-107.24" width="49.28" height="69.44" rx="7.84"/></g>
+        <g transform="rotate(300)"><rect class="bl" x="-24.64" y="-107.24" width="49.28" height="69.44" rx="7.84"/></g>
+      </g>
+      <circle id="dot" r="21.28" fill="#FFB23F"/>
+    </g>
+  </svg>
+  <div class="big l2" id="l2"><span class="it amber">Aufnahme</span></div>
+  <div class="pitch" id="hint">
+    <p><b>Content Partner für Unternehmer und Coaches. Performance Ads für Brands.</b> Du nimmst einmal im Monat auf, ich liefere Videos, Reels und Ads.</p>
+    <a class="btn" href="#kontakt">Erstgespräch anfragen →</a>
+    <span class="label">oder scrollen, die Blende öffnet sich</span>
+  </div>
+  </div>
+  <div class="big l3" id="l3">
+    <div>Ein Monat <span class="it amber">Content</span></div>
+    <small>Du nimmst einmal im Monat auf. Ich mache daraus deine YouTube-Videos, Reels und Ads, mit Skript, Schnitt und Thumbnail.</small>
+    <a class="btn" href="#kontakt">Erstgespräch anfragen →</a>
+  </div>
+  <div class="shade" id="shade"></div>
+</section>
+
+<!-- 2 · Harte Schnitte -->
+<section class="cuts" id="cuts" data-scene="Szene 02 · Schnitt">
+  <div class="label">Was aus einem Vormittag wird</div>
+  <div class="big word" id="word">Aufnahme</div>
+  <div class="label count mono" id="count">Schnitt 01 / 09</div>
+  <div class="flash" id="flash"></div>
+</section>
+
+<!-- 3 · Timeline -->
+<section class="tl" id="arbeiten" data-scene="Szene 03 · Timeline">
+  <div class="tl-head">
+    <h2 class="big">Ausgewählte <span class="it">Arbeiten</span></h2>
+    <span class="label">Antippen für Ton</span>
+  </div>
+  <div class="playhead"><span class="mono" id="phtc">00:00:00:00</span></div>
+  <div class="track" id="track">
+    <div class="ruler"></div>
+    <div class="tclip" data-id="1222856719" data-h="4d0a3329f7"><div class="v"><video data-src="1222856719.mp4" poster="1222856719.webp" muted loop playsinline preload="none" aria-label="Performance-Ad"></video></div><div class="cap"><b>Performance-Ad</b><span>E-Com</span></div></div>
+    <div class="tclip" data-id="1228589031" data-h="0fc0c8339d"><div class="v"><video data-src="1228589031.mp4" poster="1228589031.webp" muted loop playsinline preload="none" aria-label="KI-Spot"></video></div><div class="cap"><b>KI-Spot</b><span>Animation</span></div></div>
+    <div class="tclip" data-id="1222856400" data-h="a8d2910c33"><div class="v"><video data-src="1222856400.mp4" poster="1222856400.webp" muted loop playsinline preload="none" aria-label="Talking Head"></video></div><div class="cap"><b>Talking Head</b><span>UGC</span></div></div>
+    <div class="tclip" data-id="1230952837" data-h="a5497f061d"><div class="v"><video data-src="1230952837.mp4" poster="1230952837.webp" muted loop playsinline preload="none" aria-label="Experten-Reaction"></video></div><div class="cap"><b>Experten-Reaction</b><span>KI-UGC</span></div></div>
+    <div class="tclip" data-id="1230958499" data-h="24388f79a9"><div class="v"><video data-src="1230958499.mp4" poster="1230958499.webp" muted loop playsinline preload="none" aria-label="KI-Song"></video></div><div class="cap"><b>KI-Spot mit Song</b><span>Animation</span></div></div>
+    <div class="tclip" data-id="1222855889" data-h="8156d71b03"><div class="v"><video data-src="1222855889.mp4" poster="1222855889.webp" muted loop playsinline preload="none" aria-label="UGC-Ad"></video></div><div class="cap"><b>UGC-Ad</b><span>Supplements</span></div></div>
+  </div>
+</section>
+
+<!-- 4 · Zoom durch den Buchstaben -->
+<section class="zoom" id="zoom" data-scene="Szene 04 · Reichweite">
+  <img class="zbg" src="1228589031-bg.jpg" alt="" loading="lazy">
+  <video class="zv" data-src="1228589031-hd.mp4" poster="1228589031.webp" muted loop playsinline preload="none"></video>
+  <div class="zk" id="zk"><div class="big zt" id="zt">S<span id="zi">I</span>CHTBAR</div></div>
+  <div class="zl" id="zl"><div class="label">Was am Ende zählt</div><div class="big">Content, den man <span class="it amber">nicht wegwischt</span></div></div>
+</section>
+
+<!-- 5 · Leistungen -->
+<section class="sec" id="leistungen" data-scene="Szene 05 · Leistungen">
+  <div class="label" style="margin-bottom:40px">Leistungen</div>
+  <div class="svc">
+    <div class="label n mono">01</div>
+    <div>
+      <h3 class="big">Content Partner</h3>
+      <div class="body">
+        <p>Für Unternehmer und Coaches, die regelmäßig posten wollen, ohne selbst am Schnitt zu sitzen. Du nimmst einen Vormittag im Monat auf, um den Rest kümmere ich mich.</p>
+        <div class="incl">YouTube-Videos mit Thumbnail · Reels für jeden Tag · Themen und Skripte · Untertitel · Korrekturen</div>
+      </div>
+    </div>
+  </div>
+  <div class="svc">
+    <div class="label n mono">02</div>
+    <div>
+      <h3 class="big">Performance Ads</h3>
+      <div class="body">
+        <p>Für Brands und Agenturen, die auf Meta und TikTok testen. Ein Body, mehrere Hooks, jede Variante als eigenes Creative. Fehlende Szenen entstehen mit KI.</p>
+        <div class="incl">Hook-Varianten · UGC und VSL · KI-Produktion · 9:16 und 4:5 · nächste Runde nach euren Zahlen</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · Stimmen -->
+<section class="sec" id="stimmen" data-scene="Szene 06 · Stimmen" style="padding-top:40px">
+  <div class="label" style="margin-bottom:40px">Kunden über die Zusammenarbeit</div>
+  <blockquote class="q" id="q">„Patrick hat hervorragende Arbeit geleistet. Deadlines wurden zuverlässig eingehalten und die Qualität der Videos hat unsere Erwartungen übertroffen.“</blockquote>
+  <div class="attr"><b>Sports-Tech-Unternehmen</b> · Short-Form-Content · über Upwork</div>
+  <div class="quotes">
+    <div><blockquote class="it">„He clearly understands what makes a video convert rather than just look good.“</blockquote><span>Ad-Creatives, Short-Form-Batch</span></div>
+    <div><blockquote class="it">„Wirklich top Qualität, genau das, was wir gesucht haben.“</blockquote><span>Meta-Ads auf Deutsch</span></div>
+    <div><blockquote class="it">„He delivered the video quickly, followed the brief closely and showed a real eye for detail.“</blockquote><span>Personal-Brand-Reel</span></div>
+  </div>
+  <div class="stats">
+    <div><b class="mono" data-to="5.0" data-dec="1">0,0</b><span>bei jeder Bewertung auf Upwork</span></div>
+    <div><b class="mono" data-to="100" data-suf=" %">0</b><span>Job Success</span></div>
+    <div><b class="mono" data-to="3" data-suf="+">0</b><span>Jahre Short-Form</span></div>
+  </div>
+</section>
+
+<!-- 6 · Ablauf -->
+<section class="sec" id="ablauf" data-scene="Szene 07 · Ablauf" style="padding-top:40px">
+  <div class="label">Ablauf</div>
+  <div class="steps">
+    <div class="step"><div class="top label mono"><span>Szene 01</span><span>Take 1</span></div><div><h3 class="big">Ein <span class="it">Gespräch</span></h3><p>Dreißig Minuten. Wir klären, wo du stehst und wofür die Videos da sind.</p></div></div>
+    <div class="step"><div class="top label mono"><span>Szene 02</span><span>Take 1</span></div><div><h3 class="big">Ein <span class="it">Vormittag</span></h3><p>Du bekommst Themen und Skripte von mir und nimmst alles an einem Stück auf.</p></div></div>
+    <div class="step"><div class="top label mono"><span>Szene 03</span><span>Take 1</span></div><div><h3 class="big">Ein <span class="it">Monat</span></h3><p>Ich liefere die Videos fertig zum Posten. Feedback gibst du direkt im Video.</p></div></div>
+  </div>
+</section>
+
+<!-- 7 · Kontakt -->
+<section class="contact" id="kontakt" data-scene="Szene 08 · Abspann">
+  <div class="label">Kontakt · Patrick Pingel, Gründer</div>
+  <h2 class="big" id="cta-h">Schreib <span class="it amber">mir</span></h2>
+  <div class="row">
+    <a class="mail" href="mailto:patrick@lumina-frames.com?subject=Erstgespr%C3%A4ch">patrick@lumina-frames.com</a>
+    <a class="mag" id="mag" href="mailto:patrick@lumina-frames.com?subject=Erstgespr%C3%A4ch">Erstgespräch<br>anfragen</a>
+  </div>
+  <footer>
+    <span>© 2026 Lumina Frames LLC</span>
+    <div><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div>
+  </footer>
+</section>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true"><button id="lbclose">Schließen ✕</button><div class="box" id="lbbox"></div></div>
+
+<script src="gsap.min.js"></script>
+<script src="ScrollTrigger.min.js"></script>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+const V='https://player.vimeo.com/video/', $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// Videos: erst laden, wenn sie gleich gebraucht werden; nur sichtbare laufen
+const loadV=v=>{if(!v.src&&v.dataset.src){v.src=v.dataset.src;v.preload='auto'}};
+const playV=v=>{loadV(v);const p=v.play();if(p)p.catch(()=>{})};
+const vis=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;e.isIntersecting?playV(v):v.pause()}),{rootMargin:'0px 30% 0px 30%'});
+const near=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){loadV(e.target);near.unobserve(e.target)}}),{rootMargin:'100% 100% 100% 100%'});
+$$('video').forEach(v=>{if(v.offsetParent!==null||v.closest('.tclip')){vis.observe(v);near.observe(v)}});
+// Wand im Hintergrund vorladen, sobald die Seite steht
+addEventListener('load',()=>setTimeout(()=>$$('.wall video').forEach(v=>v.offsetParent!==null&&scrollY<innerHeight*3&&playV(v)),300));
+
+// HUD: Timecode läuft mit dem Scrollen (25 fps)
+const tcEl=$('#tc'),sceneEl=$('#scene');
+const tc=f=>{const ff=f%25,s=Math.floor(f/25),p=n=>String(n).padStart(2,'0');return p(Math.floor(s/3600))+':'+p(Math.floor(s/60)%60)+':'+p(s%60)+':'+p(ff)};
+const scenes=$$('[data-scene]');let ranges=[],lastScene='',ticking=false;
+const measure=()=>{ranges=scenes.map(s=>{const el=s.parentElement.classList.contains('pin-spacer')?s.parentElement:s,r=el.getBoundingClientRect();return [r.top+scrollY,r.bottom+scrollY,s.dataset.scene]})};
+const hudUpd=()=>{ticking=false;tcEl.textContent=tc(Math.floor(scrollY/3));const y=scrollY+innerHeight/2;
+  for(const [a,b,n] of ranges){if(y>=a&&y<b){if(n!==lastScene){lastScene=n;sceneEl.textContent=n}break}}};
+addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(hudUpd)}},{passive:true});
+ScrollTrigger.addEventListener('refresh',()=>{measure();hudUpd()});
+
+if(!reduce){
+  // 1 · Blende: Rahmen fliegen raus, Lichtpunkt wird zur Öffnung
+  const C=()=>{const a=$('#iris').getBoundingClientRect(),w=$('#wall').getBoundingClientRect();return [a.left-w.left+a.width/2,a.top-w.top+a.height/2]};
+  const R=()=>{const [x,y]=C();return Math.hypot(Math.max(x,innerWidth-x),Math.max(y,innerHeight-y))+40};
+  const at=()=>{const [x,y]=C();return `at ${x.toFixed(1)}px ${y.toFixed(1)}px`};
+  const crossUpd=()=>{$('.hud .cross').style.top=(C()[1]-14)+'px'};ScrollTrigger.addEventListener('refresh',crossUpd);
+  const dotR=()=>$('#iris').getBoundingClientRect().width*21.28/256;
+  const intro=gsap.timeline({scrollTrigger:{trigger:'#intro',start:'top top',end:'+=260%',scrub:1,pin:true,invalidateOnRefresh:true}});
+  intro
+    .to('#hint',{opacity:0,y:30,duration:.12},0)
+    .to('#l1',{yPercent:-160,opacity:0,ease:'power2.in',duration:.45},0)
+    .to('#l2',{yPercent:160,opacity:0,ease:'power2.in',duration:.45},0)
+    .to('#blades',{rotation:150,svgOrigin:'0 0',ease:'power1.in',duration:.7},0)
+    .to('.bl',{attr:{y:-560},opacity:0,ease:'power2.in',duration:.7},.05)
+    .to('#dot',{attr:{r:150},opacity:0,ease:'power2.in',duration:.5},.2)
+    .fromTo('#wall',{clipPath:()=>`circle(${dotR()}px ${at()})`},{clipPath:()=>`circle(${R()}px ${at()})`,ease:'power2.inOut',duration:.75},.12)
+    .to('#shade',{opacity:1,ease:'none',duration:.25},.62)
+    .fromTo('#l3',{opacity:0,scale:.82,filter:'blur(14px)'},{opacity:1,scale:1,filter:'blur(0px)',ease:'power3.out',duration:.3},.7)
+    .set('#l3',{pointerEvents:'auto'},.9);
+
+  // 2 · Jump-Cuts: Wort wechselt hart, mit Blitz und Punch-in
+  const words=['Aufnahme','Skript','Hook','Schnitt','Untertitel','Thumbnail','Reels','Ads','Kunden.'];
+  const wordEl=$('#word'),countEl=$('#count'),flash=$('#flash');let cur=0;
+  ScrollTrigger.create({trigger:'#cuts',start:'top top',end:'+=320%',pin:true,onUpdate:st=>{
+    const i=Math.min(words.length-1,Math.floor(st.progress*words.length));
+    if(i!==cur){cur=i;
+      wordEl.textContent=words[i];
+      wordEl.classList.toggle('amber',i===words.length-1);
+      countEl.textContent='Schnitt '+String(i+1).padStart(2,'0')+' / '+String(words.length).padStart(2,'0');
+      gsap.fromTo(flash,{opacity:.85},{opacity:0,duration:.18,ease:'power1.out'});
+      gsap.fromTo(wordEl,{scale:1.22,x:gsap.utils.random(-24,24),textShadow:'-14px 0 rgba(255,43,74,.9), 14px 0 rgba(43,217,255,.9)'},{scale:1,x:0,textShadow:'0px 0 rgba(255,43,74,0), 0px 0 rgba(43,217,255,0)',duration:.4,ease:'expo.out'});
+      if(i===words.length-1)gsap.fromTo(wordEl,{rotation:-4},{rotation:0,duration:.7,ease:'elastic.out(1,.3)'});
+    }
+  }});
+
+  // 3 · Timeline: Clips fahren unter dem Playhead durch
+  const track=$('#track'),clips=$$('.tclip'),phtc=$('#phtc');
+  const ctr=c=>c.offsetLeft+c.offsetWidth/2;
+  const x0=()=>innerWidth/2-ctr(clips[0]), x1=()=>innerWidth/2-ctr(clips[clips.length-1]);
+  let centers=[];const getP=gsap.getProperty(track),getX=()=>getP('x');
+  const focus=()=>{const mid=innerWidth/2,x=getX();clips.forEach((c,i)=>{const d=Math.abs(x+centers[i]-mid)/innerWidth;
+    c.style.transform='scale('+(1-Math.min(d,1)*.28).toFixed(3)+')';c.style.opacity=(1-Math.min(d*1.6,.72)).toFixed(3)})};
+  ScrollTrigger.addEventListener('refreshInit',()=>{centers=clips.map(ctr)});centers=clips.map(ctr);
+  gsap.fromTo(track,{x:x0},{x:x1,ease:'none',scrollTrigger:{trigger:'#arbeiten',start:'top top',end:()=>'+='+(x0()-x1())*1.3,pin:true,scrub:.6,invalidateOnRefresh:true,
+    onUpdate:st=>{focus();phtc.textContent=tc(Math.floor(st.progress*25*95))},onRefresh:focus}});
+  focus();
+
+  // 4 · Zoom: Kamera fliegt durch das I, dahinter läuft das Video
+  const zk=$('#zk'),zi=$('#zi');
+  const zOrigin=()=>{const ks=gsap.getProperty(zk,'scale'),ts=gsap.getProperty('#zt','scale');gsap.set([zk,'#zt'],{scale:1});const r=zi.getBoundingClientRect(),k=zk.getBoundingClientRect();zox=r.left-k.left+r.width/2;zk.style.transformOrigin=zox.toFixed(1)+'px '+(r.top-k.top+r.height*.52).toFixed(1)+'px';gsap.set(zk,{scale:ks});gsap.set('#zt',{scale:ts})};
+  ScrollTrigger.addEventListener('refreshInit',()=>{gsap.set(zk,{scale:1,x:0});zOrigin()});
+  let zox=innerWidth/2;zOrigin();
+  gsap.timeline({scrollTrigger:{trigger:'#zoom',start:'top top',end:'+=220%',pin:true,scrub:.8,invalidateOnRefresh:true}})
+    .fromTo('#zt',{scale:.86,opacity:.4},{scale:1,opacity:1,duration:.25,ease:'power2.out'},0)
+    .to(zk,{scale:140,ease:'power4.in',duration:1},.2)
+    .to(zk,{x:()=>innerWidth/2-zox,ease:'power2.inOut',duration:.7},.2)
+    .to(zk,{opacity:0,duration:.08},1.12)
+    .to('#zoom',{'--zs':1,duration:.3},1.15)
+    .fromTo('#zl',{opacity:0,y:60},{opacity:1,y:0,duration:.3,ease:'power3.out'},1.2)
+    .to({},{duration:.3});
+
+  // 5 · Leistungen: Schrift füllt sich beim Scrollen
+  $$('.svc h3').forEach(h=>gsap.to(h,{backgroundPosition:'0% 0',ease:'none',scrollTrigger:{trigger:h,start:'top 85%',end:'top 35%',scrub:true}}));
+
+  // 5 · Zitat Wort für Wort
+  const q=$('#q');q.innerHTML=q.textContent.split(' ').map(w=>'<span class="w">'+w+'</span>').join(' ');
+  gsap.to('#q .w',{opacity:1,stagger:.1,ease:'none',scrollTrigger:{trigger:'#q',start:'top 80%',end:'bottom 45%',scrub:true}});
+  $$('.stats b').forEach(b=>{const o={v:0},to=+b.dataset.to,dec=+(b.dataset.dec||0),suf=b.dataset.suf||'';
+    gsap.to(o,{v:to,duration:1.6,ease:'power3.out',scrollTrigger:{trigger:b,start:'top 85%'},onUpdate:()=>b.textContent=o.v.toFixed(dec).replace('.',',')+suf})});
+
+  // 6 · Ablauf: Fortschrittslinie wie ein Render-Balken
+  $$('.step').forEach((s,i)=>gsap.fromTo(s,{'--p':'0%',y:60,opacity:0},{'--p':'100%',y:0,opacity:1,ease:'power2.out',scrollTrigger:{trigger:'.steps',start:'top 85%',end:'bottom 70%',scrub:true},delay:i*.1}));
+
+  // 7 · Abspann
+  gsap.from('#cta-h',{yPercent:40,opacity:0,ease:'power3.out',scrollTrigger:{trigger:'#kontakt',start:'top 75%',end:'top 25%',scrub:true}});
+} else {
+  gsap.set('#wall',{clipPath:'none'});gsap.set('#zl',{opacity:1});gsap.set(['#l3','#shade'],{opacity:1});gsap.set('#l3',{pointerEvents:'auto'});gsap.set(['#l1','#l2','#iris','#hint'],{display:'none'});
+  $$('#q').forEach(q=>q.style.opacity=1);$$('.stats b').forEach(b=>b.textContent=(+b.dataset.to).toFixed(+(b.dataset.dec||0)).replace('.',',')+(b.dataset.suf||''));
+  $('#track').style.cssText='position:relative;top:auto;overflow-x:auto;padding:30vh var(--pad) 0';
+}
+
+// Cursor
+const cursor=$('#cur');
+if(matchMedia('(pointer:fine)').matches){
+  const xTo=gsap.quickTo(cursor,'x',{duration:.25,ease:'power3'}),yTo=gsap.quickTo(cursor,'y',{duration:.25,ease:'power3'});
+  addEventListener('mousemove',e=>{xTo(e.clientX);yTo(e.clientY)});
+  $$('.tclip').forEach(c=>{c.addEventListener('mouseenter',()=>cursor.classList.add('on'));c.addEventListener('mouseleave',()=>cursor.classList.remove('on'))});
+  // Magnet-Knopf
+  const mag=$('#mag');
+  mag.addEventListener('mousemove',e=>{const r=mag.getBoundingClientRect();gsap.to(mag,{x:(e.clientX-r.left-r.width/2)*.35,y:(e.clientY-r.top-r.height/2)*.35,duration:.4})});
+  mag.addEventListener('mouseleave',()=>gsap.to(mag,{x:0,y:0,duration:.6,ease:'elastic.out(1,.4)'}));
+}
+
+// Lightbox mit Ton
+const lb=$('#lb'),box=$('#lbbox');
+$$('.tclip').forEach(c=>c.addEventListener('click',()=>{
+  box.className='box'+(c.classList.contains('wide')?' wide':'');
+  box.innerHTML='<iframe src="'+V+c.dataset.id+'?h='+c.dataset.h+'&autoplay=1&title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture"></iframe>';
+  lb.classList.add('open');
+}));
+let was=[];const close=()=>{lb.classList.remove('open');box.innerHTML='';was.forEach(playV);was=[]};
+$$('.tclip').forEach(c=>c.addEventListener('click',()=>{was=$$('video').filter(v=>!v.paused);was.forEach(v=>v.pause())}));
+$('#lbclose').onclick=close;lb.addEventListener('click',e=>{if(e.target===lb)close()});addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+addEventListener('load',()=>ScrollTrigger.refresh());
+document.fonts&&document.fonts.ready.then(()=>ScrollTrigger.refresh());
+</script>
+</body>
+</html>
