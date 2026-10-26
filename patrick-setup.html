@@ -14,7 +14,7 @@
 <style>
 @font-face{font-family:Manrope;font-weight:400;font-display:swap;src:url(Manrope-Regular.woff2) format("woff2"),url(assets/Manrope-Regular.woff2) format("woff2")}
 @font-face{font-family:Manrope;font-weight:600;font-display:swap;src:url(Manrope-Medium.woff2) format("woff2"),url(assets/Manrope-Medium.woff2) format("woff2")}
-@font-face{font-family:Serif;font-style:italic;font-display:swap;src:url(InstrumentSerif-Italic.woff2) format("woff2"),url(assets/InstrumentSerif-Italic.woff2) format("woff2")}
+@font-face{font-family:"Instrument Serif";font-style:italic;font-display:swap;src:url(InstrumentSerif-Italic.woff2) format("woff2"),url(assets/InstrumentSerif-Italic.woff2) format("woff2")}
 :root{--bg:#0A0B0E;--ink:#F7F3EC;--grey:#9A9EA6;--rule:rgba(247,243,236,.14);--amber:#FFB23F;--pad:clamp(16px,5vw,32px)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{background:var(--bg);-webkit-text-size-adjust:100%}
@@ -22,13 +22,13 @@ body{background:var(--bg);color:var(--ink);font:400 16px/1.5 Manrope,system-ui,-
 main{max-width:560px;margin:0 auto;padding:calc(env(safe-area-inset-top) + 32px) var(--pad) 40px}
 .back{display:inline-block;color:var(--grey);text-decoration:none;font-size:14px;padding:8px 0}
 .back:hover,.back:focus-visible{color:var(--amber)}
-h1{font:italic 400 clamp(44px,12vw,64px)/1.02 Serif,Georgia,serif;margin:20px 0 14px}
+h1{font:italic 400 clamp(44px,12vw,64px)/1.02 "Instrument Serif",Georgia,serif;margin:20px 0 14px}
 .lead{color:var(--grey);font-size:17px;max-width:36ch}
 section{margin-top:40px}
 h2{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--grey);font-weight:600;padding-bottom:10px;border-bottom:1px solid var(--rule)}
 ul{list-style:none}
 li{padding:18px 0;border-bottom:1px solid var(--rule)}
-li .t{display:block;font:italic 400 26px/1.15 Serif,Georgia,serif}
+li .t{display:block;font:italic 400 26px/1.15 "Instrument Serif",Georgia,serif}
 li .s{display:block;font-size:15px;color:var(--grey);margin-top:6px;max-width:44ch}
 li a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--rule);text-underline-offset:4px}
 li a:hover,li a:focus-visible{text-decoration-color:var(--amber)}
