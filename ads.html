@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Ad-Creatives für E-Com-Brands · Lumina Frames</title>
+<meta name="description" content="Research, Skript, Creatives und Schnitt aus einer Hand. Jede Ad als Set mit drei echten Einstiegen, fertig zum Testen auf Meta und TikTok.">
+<meta property="og:title" content="Ihr liefert die Zahlen. Wir bauen die Gewinner-Ad.">
+<meta property="og:description" content="Ad-Creatives für E-Com-Brands: Research, Skript, Creatives und Schnitt aus einer Hand.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lumina-frames.com/ads">
+<meta name="theme-color" content="#0A0B0E">
+<link rel="canonical" href="https://lumina-frames.com/ads">
+<link rel="icon" href="lumina-frames-icon.svg" type="image/svg+xml">
+<link rel="preload" href="Manrope-ExtraBold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="InstrumentSerif-Italic.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:Manrope;font-weight:400;font-display:swap;src:url(Manrope-Regular.woff2) format("woff2")}
+@font-face{font-family:Manrope;font-weight:500 600;font-display:swap;src:url(Manrope-Medium.woff2) format("woff2")}
+@font-face{font-family:Manrope;font-weight:700;font-display:swap;src:url(Manrope-Bold.woff2) format("woff2")}
+@font-face{font-family:Manrope;font-weight:800;font-display:swap;src:url(Manrope-ExtraBold.woff2) format("woff2")}
+@font-face{font-family:"Instrument Serif";font-style:italic;font-display:swap;src:url(InstrumentSerif-Italic.woff2) format("woff2")}
+
+:root{--bg:#0A0B0E;--ink:#F7F3EC;--grey:#8A8E96;--soft:#C9C5BC;--rule:rgba(247,243,236,.12);--amber:#FFB23F;--rec:#FF3B30;--pad:clamp(16px,4vw,56px)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:clip;-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:Manrope,system-ui,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+img,video{display:block;max-width:100%}
+.it{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:400;text-transform:none;letter-spacing:-.01em}
+.amber{color:var(--amber)}
+.mono{font-variant-numeric:tabular-nums;letter-spacing:.08em}
+.label{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--grey)}
+.big{font-weight:800;text-transform:uppercase;letter-spacing:-.045em;line-height:.9;text-wrap:balance}
+.wrap{max-width:1240px;margin:0 auto;padding:0 var(--pad)}
+:focus-visible{outline:2px solid var(--amber);outline-offset:4px}
+
+/* Filmkorn */
+.grain{position:fixed;inset:-50%;z-index:90;pointer-events:none;opacity:.06;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:grain .9s steps(6) infinite}
+@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-4%,3%)}40%{transform:translate(3%,-2%)}60%{transform:translate(-2%,-4%)}80%{transform:translate(4%,2%)}100%{transform:translate(0,0)}}
+
+/* Sucher-HUD wie auf der Startseite */
+.hud{position:fixed;inset:14px;z-index:80;pointer-events:none;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;mix-blend-mode:difference;color:#fff}
+.hud i{position:absolute;width:26px;height:26px;border:0 solid #fff}
+.hud .c1{top:0;left:0;border-top-width:2px;border-left-width:2px}
+.hud .c2{top:0;right:0;border-top-width:2px;border-right-width:2px}
+.hud .c3{bottom:0;left:0;border-bottom-width:2px;border-left-width:2px}
+.hud .c4{bottom:0;right:0;border-bottom-width:2px;border-right-width:2px}
+.hud span{position:absolute}
+.hud .tc{bottom:8px;left:40px}
+.hud .scene{bottom:8px;right:40px}
+
+/* Kopf */
+header{position:fixed;top:36px;left:var(--pad);right:var(--pad);z-index:70;display:flex;justify-content:space-between;align-items:center;gap:12px;color:#fff}
+header::before{content:"";position:fixed;top:0;left:0;right:0;height:96px;background:linear-gradient(var(--bg) 35%,rgba(10,11,14,0));z-index:-1;pointer-events:none}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:15px;letter-spacing:.02em;text-transform:uppercase}
+.brand img{width:22px;height:22px}
+.k{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;background:var(--amber);color:var(--bg);padding:11px 18px;border-radius:999px;white-space:nowrap;transition:transform .2s}
+.k:hover{transform:scale(1.05)}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--amber);color:var(--bg);font-weight:800;font-size:14px;letter-spacing:.1em;text-transform:uppercase;padding:18px 28px;border-radius:999px;transition:transform .2s}
+.btn:hover{transform:scale(1.04)}
+.txt{font-weight:600;border-bottom:1px solid var(--grey);padding-bottom:2px;transition:border-color .2s,color .2s}
+.txt:hover{border-color:var(--amber);color:var(--amber)}
+
+/* 1 · Start */
+.hero{padding:clamp(128px,20vh,190px) 0 clamp(56px,9vh,110px)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.9fr);gap:clamp(28px,5vw,72px);align-items:center}
+.hero h1{font-size:clamp(40px,7.2vw,108px);margin:20px 0 26px}
+.hero h1 .it{display:block;font-size:1.08em;line-height:.95;margin-top:.06em}
+.hero p.lead{max-width:44ch;color:var(--soft);font-size:clamp(17px,1.5vw,20px)}
+.cta{display:flex;flex-wrap:wrap;align-items:center;gap:18px 26px;margin-top:34px}
+.reel{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(8px,1vw,14px);align-items:start}
+.ph{position:relative;aspect-ratio:9/16;border-radius:12px;overflow:hidden;background:#111;border:1px solid var(--rule);cursor:pointer}
+.ph video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ph .tag{position:absolute;left:8px;bottom:8px;right:8px;font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;text-shadow:0 1px 8px rgba(0,0,0,.8)}
+.reel .ph:nth-child(1){margin-top:14%}
+.reel .ph:nth-child(3){margin-top:28%}
+
+/* Abschnitte */
+section{padding:clamp(72px,12vh,150px) 0;border-top:1px solid var(--rule)}
+section.hero{border-top:0}
+.sh{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:clamp(30px,5vw,60px)}
+h2.big{font-size:clamp(34px,6vw,88px)}
+.sh .label{white-space:nowrap;flex:none}
+.sub{max-width:52ch;color:var(--soft);margin-top:22px}
+
+/* 2 · Problem */
+.rows{border-top:1px solid var(--rule)}
+.row{display:grid;grid-template-columns:72px minmax(0,1fr) minmax(0,1fr);gap:8px clamp(16px,4vw,56px);padding:clamp(22px,3.4vw,40px) 0;border-bottom:1px solid var(--rule);align-items:baseline}
+.row .n{color:var(--amber);font-weight:800;font-size:13px}
+.row h3{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:400;font-size:clamp(26px,3.3vw,44px);line-height:1.08;letter-spacing:-.01em}
+.row p{color:var(--soft);max-width:46ch}
+
+/* 3 · Ad-Set als Schnittspur */
+.tl{position:relative;margin-top:clamp(30px,5vw,56px);padding:34px 0 6px}
+.tl .ruler{position:absolute;top:0;left:0;right:0;height:22px;border-bottom:1px solid var(--rule);background:repeating-linear-gradient(90deg,var(--rule) 0 1px,transparent 1px 10%) bottom/100% 8px no-repeat;font-size:11px;color:var(--grey);display:flex;justify-content:space-between}
+.tl .ruler span{transform:translateY(-4px)}
+.tl .head{position:absolute;top:0;bottom:0;left:0;width:1px;background:var(--rec);animation:sweep 9s linear infinite}
+.tl .head::before{content:"";position:absolute;top:0;left:-5px;border:5px solid transparent;border-top:8px solid var(--rec)}
+@keyframes sweep{from{left:0}to{left:100%}}
+.ad{display:grid;grid-template-columns:minmax(96px,24%) minmax(0,1fr);gap:6px;margin-top:10px}
+.ad .hk,.ad .bd{height:clamp(54px,7vw,76px);border-radius:8px;padding:0 clamp(10px,1.6vw,18px);display:flex;flex-direction:column;justify-content:center;overflow:hidden;white-space:nowrap}
+.ad b{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.ad span{font-size:13px;color:inherit;opacity:.8;overflow:hidden;text-overflow:ellipsis}
+.ad .hk{background:var(--amber);color:var(--bg)}
+.ad:nth-child(4) .hk{background:#F7F3EC}
+.ad:nth-child(5) .hk{background:transparent;color:var(--amber);border:1.5px solid var(--amber)}
+.ad .bd{background:#1B1E25;border:1px solid var(--rule);color:var(--ink)}
+.ad .bd span{color:var(--grey);opacity:1}
+.tl .hk{transform:translateX(-24px);opacity:0;transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .5s}
+.tl .bd{transform:scaleX(.02);transform-origin:left;opacity:0;transition:transform .9s cubic-bezier(.2,.8,.2,1) .25s,opacity .3s .25s}
+.tl.in .hk{transform:none;opacity:1}
+.tl.in .bd{transform:none;opacity:1}
+.tl.in .ad:nth-child(4) .hk{transition-delay:.12s}.tl.in .ad:nth-child(4) .bd{transition-delay:.37s}
+.tl.in .ad:nth-child(5) .hk{transition-delay:.24s}.tl.in .ad:nth-child(5) .bd{transition-delay:.49s}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,3vw,44px);margin-top:clamp(30px,5vw,56px)}
+.three h3{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);margin-bottom:8px}
+.three p{color:var(--soft);font-size:16px}
+
+/* 4 · Ablauf */
+.take{display:grid;grid-template-columns:120px minmax(0,1fr) minmax(0,1.1fr);gap:8px clamp(16px,4vw,56px);padding:clamp(20px,3vw,34px) 0;border-bottom:1px solid var(--rule);align-items:baseline}
+.take .n{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--grey)}
+.take h3{font-size:clamp(24px,3.2vw,44px);font-weight:800;text-transform:uppercase;letter-spacing:-.035em;line-height:1}
+.take p{color:var(--soft);max-width:48ch}
+.note{margin-top:26px;color:var(--grey);font-size:15px;max-width:60ch}
+
+/* 5 · Arbeiten */
+.works{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,1.6vw,20px)}
+.works .ph{border-radius:14px}
+.works .cap{margin-top:12px;font-size:13px;line-height:1.35}
+.works .cap b{display:block;font-weight:800;letter-spacing:.12em;text-transform:uppercase;font-size:12px}
+.works .cap span{color:var(--grey)}
+
+/* 6 · Stimmen */
+blockquote.q{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-size:clamp(30px,4.6vw,68px);line-height:1.06;letter-spacing:-.015em;max-width:24ch;text-wrap:balance}
+.src{margin-top:18px;color:var(--grey);font-size:14px}
+.q2{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(20px,4vw,56px);margin-top:clamp(40px,6vw,72px);padding-top:clamp(24px,3vw,36px);border-top:1px solid var(--rule)}
+.q2 p{font-size:18px;color:var(--ink)}
+.q2 p.src{font-size:14px;color:var(--grey);margin-top:10px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,3vw,44px);margin-top:clamp(40px,6vw,72px)}
+.stats b{display:block;font-size:clamp(44px,7vw,104px);font-weight:800;letter-spacing:-.05em;line-height:1}
+.stats span{color:var(--grey);font-size:14px}
+
+/* 7 · Gratis-Probe */
+.probe{background:var(--ink);color:var(--bg);border-top:0}
+.probe .label{color:#5B5F68}
+.probe h2{font-size:clamp(36px,6.4vw,96px)}
+.probe .it{color:#B86E00}
+.probe p{max-width:50ch;margin:24px 0 32px;font-size:clamp(17px,1.5vw,20px)}
+.probe .btn{background:var(--bg);color:var(--ink)}
+.probe .txt{border-color:#5B5F68}
+.probe .txt:hover{color:#B86E00;border-color:#B86E00}
+.probe ol{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,3vw,44px);margin-top:clamp(36px,5vw,60px);padding-top:26px;border-top:1px solid rgba(10,11,14,.16)}
+.probe ol b{display:block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:6px}
+.probe ol li{font-size:16px}
+
+/* 8 · Für wen */
+.fit{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(20px,5vw,72px)}
+.fit h3{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--grey);padding-bottom:12px;border-bottom:1px solid var(--rule);margin-bottom:6px}
+.fit li{list-style:none;padding:14px 0;border-bottom:1px solid var(--rule);color:var(--soft)}
+.fit .yes li{color:var(--ink)}
+
+/* 9 · Fragen */
+details{border-bottom:1px solid var(--rule)}
+details:first-of-type{border-top:1px solid var(--rule)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;font-weight:700;font-size:clamp(18px,2vw,24px);letter-spacing:-.01em}
+summary::-webkit-details-marker{display:none}
+summary i{flex:none;width:34px;font-style:normal;font-size:12px;font-weight:800;color:var(--amber)}
+summary span{flex:1}
+.after{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;margin-top:30px;color:var(--soft)}
+.fine{margin-top:22px;color:var(--grey);font-size:13px;max-width:70ch}
+summary::after{content:"+";flex:none;font-weight:400;font-size:28px;line-height:1;color:var(--amber);transition:transform .25s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding:0 0 24px;color:var(--soft);max-width:62ch}
+
+/* 10 · Gründer */
+.me{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:clamp(24px,5vw,72px);align-items:center}
+.me img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:14px;border:1px solid var(--rule)}
+.me h2{font-size:clamp(30px,4.4vw,60px);margin:14px 0 20px}
+.me p{color:var(--soft);max-width:54ch}
+.me p+p{margin-top:14px}
+
+/* 11 · Abspann */
+.end{text-align:center;padding-bottom:clamp(64px,10vh,120px)}
+.end h2{font-size:clamp(40px,8vw,128px)}
+.end .cta{justify-content:center;margin-top:40px}
+footer{border-top:1px solid var(--rule);padding:26px 0 calc(34px + env(safe-area-inset-bottom));font-size:13px;color:var(--grey)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:space-between}
+footer a:hover{color:var(--ink)}
+
+/* Einblenden beim Scrollen */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+/* Lightbox */
+.lb{position:fixed;inset:0;z-index:100;background:rgba(5,6,8,.94);display:none;align-items:center;justify-content:center;padding:56px 16px 24px}
+.lb.open{display:flex}
+.lb .box{height:min(86vh,860px);aspect-ratio:9/16;max-width:100%;background:#000;border-radius:12px;overflow:hidden}
+.lb .box iframe,.lb .box video{width:100%;height:100%;border:0;display:block}
+.lb button{position:absolute;top:18px;right:18px;background:none;border:0;color:#fff;font:700 12px/1 Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;padding:10px}
+
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:1fr}
+  .reel{max-width:520px}
+  .row,.take{grid-template-columns:1fr;gap:8px}
+  .three,.q2,.fit,.me,.probe ol{grid-template-columns:1fr}
+  .works{grid-template-columns:repeat(2,1fr)}
+  .me img{max-width:260px}
+  .stats{gap:12px}
+  .stats b{font-size:clamp(26px,8.4vw,64px);white-space:nowrap}
+  .sh .label{display:none}
+}
+@media (max-width:520px){
+  .hud .scene{display:none}
+  header{top:30px}
+  .brand span{display:none}
+  .btn{padding:16px 22px;font-size:13px}
+  .ad{grid-template-columns:minmax(92px,34%) minmax(0,1fr)}
+}
+@media (prefers-reduced-motion:reduce){
+  .grain,.tl .head{animation:none}
+  .rv,.tl .hk,.tl .bd{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+<div class="hud" aria-hidden="true"><i class="c1"></i><i class="c2"></i><i class="c3"></i><i class="c4"></i><span class="tc mono" id="tc">00:00:00:00</span><span class="scene" id="scene">01 · Start</span></div>
+
+<header>
+  <a class="brand" href="#top" aria-label="Lumina Frames, nach oben"><img src="lumina-frames-icon.svg" alt="" width="22" height="22"><span>Lumina Frames</span></a>
+  <a class="k" href="#probe" data-goatcounter-click="ads-kopf-probe">Gratis Hook-Variante</a>
+</header>
+
+<main id="top">
+<section class="hero" data-scene="01 · Start">
+  <div class="wrap">
+    <div>
+      <p class="label">Ad-Creatives für E-Com-Brands</p>
+      <h1 class="big">Ihr liefert<br>die Zahlen. <span class="it amber">Wir bauen die Gewinner-Ad.</span></h1>
+      <p class="lead">Research, Skript, Creatives und Schnitt aus einer Hand. Jede Ad kommt als Set: ein Body, drei echte Einstiege, fertig zum Testen auf Meta und TikTok.</p>
+      <div class="cta">
+        <a class="btn" href="#probe" data-goatcounter-click="ads-start-probe">Gratis Hook-Variante anfragen →</a>
+        <a class="txt" href="https://calendly.com/cutsbypatrick1/30min" target="_blank" rel="noopener" data-goatcounter-click="ads-start-call">oder Gespräch buchen</a>
+      </div>
+    </div>
+    <div class="reel" aria-label="Drei Beispiel-Ads, antippen für Ton">
+      <div class="ph clip" data-id="1222856719" data-h="4d0a3329f7"><video data-src="1222856719.mp4" poster="1222856719.webp" muted loop playsinline preload="none" aria-label="Performance-Ad"></video><span class="tag">Performance-Ad</span></div>
+      <div class="ph clip" data-mp4="purenorth-full.mp4"><video data-src="purenorth.mp4" poster="purenorth.webp" muted loop playsinline preload="none" aria-label="KI-Ad"></video><span class="tag">KI-Ad</span></div>
+      <div class="ph clip" data-id="1222855889" data-h="8156d71b03"><video data-src="1222855889.mp4" poster="1222855889.webp" muted loop playsinline preload="none" aria-label="UGC-Ad"></video><span class="tag">UGC-Ad</span></div>
+    </div>
+  </div>
+</section>
+
+<section data-scene="02 · Problem">
+  <div class="wrap">
+    <div class="sh"><h2 class="big rv">Kein Traffic-Problem. <span class="it amber">Ein Creative-Problem.</span></h2><span class="label">Szene 02</span></div>
+    <div class="rows">
+      <div class="row rv"><span class="n mono">01</span><h3>Eure beste Ad läuft seit Monaten. Ohne Nachfolger.</h3><p>Solange sie läuft, ist alles gut. Wenn sie ausbrennt, steht nichts bereit, und der CPA steigt von einer Woche auf die nächste.</p></div>
+      <div class="row rv"><span class="n mono">02</span><h3>Zehn Varianten, die Meta als eine zählt.</h3><p>Gleiche Person, gleicher Einstieg, nur anderer Text obendrüber. Das behandelt Meta als ein und dasselbe Creative. Getestet habt ihr damit ein Video, nicht zehn.</p></div>
+      <div class="row rv"><span class="n mono">03</span><h3>Fünf Dienstleister für ein Video.</h3><p>Skript hier, Creator da, Schnitt woanders. Jede Übergabe kostet Tage, und am Ende fühlt sich keiner für das Ergebnis zuständig.</p></div>
+    </div>
+  </div>
+</section>
+
+<section data-scene="03 · Ad-Set">
+  <div class="wrap">
+    <div class="sh"><h2 class="big rv">Ein Body. <span class="it amber">Drei Einstiege.</span></h2><span class="label">Szene 03</span></div>
+    <p class="sub rv">So liefern wir jedes Creative: als Ad-Set aus einem Body und drei Hooks. Jeder Hook ist ein wirklich anderer Einstieg, damit euer Test drei Antworten liefert und nicht eine.</p>
+    <div class="tl" id="tl" aria-label="Schema: drei Ads mit unterschiedlichem Hook und gleichem Body">
+      <div class="ruler mono" aria-hidden="true"><span>0:00</span><span>0:03</span><span>0:10</span><span>0:20</span><span>0:30</span></div>
+      <div class="head" aria-hidden="true"></div>
+      <div class="ad"><div class="hk"><b>Hook A</b><span>Problem-Szene</span></div><div class="bd"><b>Body</b><span>Ein Angebot, ein Beweis, ein CTA</span></div></div>
+      <div class="ad"><div class="hk"><b>Hook B</b><span>Frage, Talking Head</span></div><div class="bd"><b>Body</b><span>Derselbe Schnitt</span></div></div>
+      <div class="ad"><div class="hk"><b>Hook C</b><span>Zahl, B-Roll</span></div><div class="bd"><b>Body</b><span>Derselbe Schnitt</span></div></div>
+    </div>
+    <div class="three">
+      <div class="rv"><h3>Anderes Bild</h3><p>In den ersten zwei Sekunden sieht man etwas anderes. Kein Text-Tausch auf demselben Opener.</p></div>
+      <div class="rv"><h3>Andere Mechanik</h3><p>Frage, Zahl oder Problem-Szene. Jeder Einstieg holt den Zuschauer über einen anderen Grund ab.</p></div>
+      <div class="rv"><h3>Anderes Format</h3><p>Talking Head, B-Roll oder Static. So zählt jede Variante als eigenes Creative.</p></div>
+    </div>
+  </div>
+</section>
+
+<section data-scene="04 · Ablauf">
+  <div class="wrap">
+    <div class="sh"><h2 class="big rv">Vom Research <span class="it amber">bis zur nächsten Runde</span></h2><span class="label">Szene 04</span></div>
+    <div class="rows">
+      <div class="take rv"><span class="n">Take 01</span><h3>Research</h3><p>Wir schauen uns an, was bei euch und eurer Konkurrenz gerade läuft: aktive Ads, Reviews, Einwände eurer Kunden.</p></div>
+      <div class="take rv"><span class="n">Take 02</span><h3>Angles und Skripte</h3><p>Daraus entstehen die Angles und fertige Skripte. Ihr gebt frei, bevor produziert wird.</p></div>
+      <div class="take rv"><span class="n">Take 03</span><h3>Creatives</h3><p>Aus eurem Material, mit UGC oder per KI, wenn kein Footage da ist.</p></div>
+      <div class="take rv"><span class="n">Take 04</span><h3>Schnitt</h3><p>Jedes Creative als Ad-Set in 9:16, 4:5 und 1:1, fertig zum Hochladen. Zwei Korrekturrunden sind inklusive.</p></div>
+      <div class="take rv"><span class="n">Take 05</span><h3>Nächste Runde</h3><p>Ihr schickt die Zahlen aus dem Test. Was gewinnt, bauen wir weiter. Was verliert, fliegt raus.</p></div>
+    </div>
+    <p class="note rv">Kampagnen-Setup und Media Buying bleiben bei euch oder eurer Agentur. Wir liefern die Creatives.</p>
+  </div>
+</section>
+
+<section data-scene="05 · Arbeiten">
+  <div class="wrap">
+    <div class="sh"><h2 class="big rv">Ausgewählte <span class="it amber">Ads</span></h2><span class="label">Antippen für Ton</span></div>
+    <div class="works">
+      <div class="rv"><div class="ph clip" data-id="1222856719" data-h="4d0a3329f7"><video data-src="1222856719.mp4" poster="1222856719.webp" muted loop playsinline preload="none" aria-label="Performance-Ad"></video></div><p class="cap"><b>Performance-Ad</b><span>E-Com</span></p></div>
+      <div class="rv"><div class="ph clip" data-mp4="purenorth-full.mp4"><video data-src="purenorth.mp4" poster="purenorth.webp" muted loop playsinline preload="none" aria-label="KI-Ad"></video></div><p class="cap"><b>KI-Ad</b><span>Komplett ohne Dreh</span></p></div>
+      <div class="rv"><div class="ph clip" data-id="1222855889" data-h="8156d71b03"><video data-src="1222855889.mp4" poster="1222855889.webp" muted loop playsinline preload="none" aria-label="UGC-Ad"></video></div><p class="cap"><b>UGC-Ad</b><span>Supplements</span></p></div>
+      <div class="rv"><div class="ph clip" data-id="1222856400" data-h="a8d2910c33"><video data-src="1222856400.mp4" poster="1222856400.webp" muted loop playsinline preload="none" aria-label="Talking Head"></video></div><p class="cap"><b>Talking Head</b><span>UGC, englisch</span></p></div>
+    </div>
+  </div>
+</section>
+
+<section data-scene="06 · Stimmen">
+  <div class="wrap">
+    <p class="label rv" style="margin-bottom:26px">Kunden über die Zusammenarbeit</p>
+    <blockquote class="q rv">„He clearly understands what makes a video convert rather than just look good.“</blockquote>
+    <p class="src rv">Ad-Creatives, Short-Form-Batch · über Upwork</p>
+    <div class="q2">
+      <div class="rv"><p>„Wirklich top Qualität, genau das, was wir gesucht haben.“</p><p class="src">Meta-Ads auf Deutsch</p></div>
+      <div class="rv"><p>„Deadlines wurden zuverlässig eingehalten und die Qualität der Videos hat unsere Erwartungen übertroffen.“</p><p class="src">Sports-Tech-Unternehmen</p></div>
+    </div>
+    <div class="stats">
+      <div class="rv"><b class="mono">5,0</b><span>bei jeder Bewertung auf Upwork</span></div>
+      <div class="rv"><b class="mono">100 %</b><span>Job Success</span></div>
+      <div class="rv"><b class="mono">48 h</b><span>bis zur ersten Schnittfassung</span></div>
+    </div>
+    <p class="fine">Stand 10.11.2026. Zitate wörtlich aus Kundenbewertungen, Rechtschreibung wie im Original. Die 48 Stunden gelten für Schnitt aus vorhandenem Material.</p>
+  </div>
+</section>
+
+<section class="probe" id="probe" data-scene="07 · Gratis-Probe">
+  <div class="wrap">
+    <p class="label">Erst sehen, dann entscheiden</p>
+    <h2 class="big" style="margin-top:18px">Eine Hook-Variante. <span class="it">Geht auf uns.</span></h2>
+    <p>Schickt uns den Namen eurer Brand. Wir schauen uns eure laufenden Ads an und bauen für eine davon einen neuen Einstieg. Kostenlos, bevor ihr euch für irgendetwas entscheidet.</p>
+    <div class="cta" style="margin-top:0">
+      <a class="btn" href="mailto:patrick@lumina-frames.com?subject=Gratis%20Hook-Variante&body=Brand%3A%20%0AShop%20oder%20Werbebibliothek%3A%20%0A" data-goatcounter-click="ads-probe-mail">Hook-Variante anfragen →</a>
+      <a class="txt" href="https://calendly.com/cutsbypatrick1/30min" target="_blank" rel="noopener" data-goatcounter-click="ads-probe-call">Lieber direkt sprechen</a>
+    </div>
+    <ol>
+      <li><b>01 · Ihr schreibt uns</b>Brand und Shop-Link reichen. Kein Formular, kein Verkaufsgespräch.</li>
+      <li><b>02 · Wir schauen rein</b>Wir prüfen eure aktiven Ads in der Werbebibliothek und wählen die Ad mit dem größten Hebel.</li>
+      <li><b>03 · Ihr bekommt den Hook</b>Als fertige Datei zum Testen. Wenn er nicht passt, sagt einfach nein.</li>
+    </ol>
+  </div>
+</section>
+
+<section data-scene="08 · Für wen">
+  <div class="wrap">
+    <div class="sh"><h2 class="big rv">Passt das <span class="it amber">zu euch?</span></h2><span class="label">Szene 08</span></div>
+    <div class="fit">
+      <ul class="yes rv"><h3>Ja, wenn</h3><li>ihr eine D2C-Brand im DACH-Raum führt</li><li>ihr laufend Budget auf Meta oder TikTok habt</li><li>ihr jeden Monat neue Creatives testen wollt</li></ul>
+      <ul class="rv"><h3>Eher nicht, wenn</h3><li>ihr nur ein einzelnes Video sucht</li><li>ihr noch keine Ads schaltet</li><li>ihr jemanden für Kampagnen-Setup und Media Buying braucht</li></ul>
+    </div>
+  </div>
+</section>
+
+<section data-scene="09 · Fragen">
+  <div class="wrap">
+    <div class="sh"><h2 class="big rv">Was vorher <span class="it amber">gefragt wird</span></h2><span class="label">Szene 09</span></div>
+    <details><summary><i class="mono">01</i><span>Was kostet das?</span></summary><p>Das hängt davon ab, wie viele Ad-Sets ihr pro Monat testen wollt. Im Gespräch bekommt ihr eine klare Zahl und ein festes Monatsangebot.</p></details>
+    <details><summary><i class="mono">02</i><span>Wie schnell bekommen wir etwas zu sehen?</span></summary><p>Schnitt aus eurem Material: Die erste Fassung steht nach 48 Stunden. Ad-Sets mit Research und Skript planen wir im Kick-off mit festem Liefertermin.</p></details>
+    <details><summary><i class="mono">03</i><span>Was braucht ihr von uns?</span></summary><p>Zugriff auf euer Material (ein Drive-Link reicht), eure Marken-Vorgaben und nach jedem Test die Zahlen. Den Rest machen wir.</p></details>
+    <details><summary><i class="mono">04</i><span>Wir haben kaum eigenes Footage. Geht das trotzdem?</span></summary><p>Ja. Fehlende Szenen entstehen per KI oder mit UGC. Die KI-Ad weiter oben ist komplett ohne Dreh entstanden.</p></details>
+    <details><summary><i class="mono">05</i><span>Schaltet ihr die Ads auch?</span></summary><p>Nein. Kampagnen-Setup und Media Buying bleiben bei euch oder eurer Agentur. Ihr bekommt die Creatives fertig zum Hochladen.</p></details>
+    <details><summary><i class="mono">06</i><span>Mit wem arbeiten wir?</span></summary><p>Mit Patrick, dem Gründer. Jedes Creative geht über seinen Tisch, bevor ihr es seht.</p></details>
+    <div class="after"><span>Eure Frage fehlt? Stellt sie im Gespräch.</span><a class="k" href="https://calendly.com/cutsbypatrick1/30min" target="_blank" rel="noopener" data-goatcounter-click="ads-fragen-call">Gespräch buchen</a></div>
+  </div>
+</section>
+
+<section data-scene="10 · Gründer">
+  <div class="wrap me">
+    <img class="rv" src="patrick.jpg" alt="Patrick Pingel, Gründer von Lumina Frames" width="720" height="720" loading="lazy">
+    <div class="rv">
+      <p class="label">Patrick Pingel, Gründer</p>
+      <h2 class="big">Jede Ad geht über <span class="it amber">meinen Tisch.</span></h2>
+      <p>Ich komme aus dem Schnitt und habe dort immer dasselbe gesehen: Die Brands, die gewinnen, haben nicht das schönste Video. Die testen jeden Monat neue Einstiege.</p>
+      <p>Deshalb verkauft Lumina Frames keine einzelnen Videos, sondern Ad-Sets. Schnell geht das, weil wir uns eine eigene KI-Produktion gebaut haben. Gut wird es, weil ich jedes Creative selbst abnehme.</p>
+    </div>
+  </div>
+</section>
+
+<section class="end" data-scene="11 · Abspann">
+  <div class="wrap">
+    <h2 class="big rv">Welche Ad gewinnt <span class="it amber">als Nächstes?</span></h2>
+    <div class="cta rv">
+      <a class="btn" href="#probe" data-goatcounter-click="ads-ende-probe">Gratis Hook-Variante anfragen →</a>
+      <a class="txt" href="mailto:patrick@lumina-frames.com">patrick@lumina-frames.com</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><span>© 2026 Lumina Frames LLC</span><span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span></div></footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Video mit Ton"><button id="lbclose" type="button">Schließen ✕</button><div class="box" id="lbbox"></div></div>
+
+<script>
+(()=>{
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const calm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+// Einblenden
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
+$$('.rv,#tl').forEach(el=>io.observe(el));
+
+// Videos: erst laden, wenn sie in die Nähe kommen; nur sichtbare laufen
+const vio=new IntersectionObserver(es=>es.forEach(e=>{
+  const v=e.target;
+  if(e.isIntersecting){if(!v.src&&v.dataset.src)v.src=v.dataset.src;if(!calm)v.play().catch(()=>{})}
+  else v.pause();
+}),{rootMargin:'200px 0px'});
+$$('video[data-src]').forEach(v=>vio.observe(v));
+
+// Sucher: Timecode und Szene
+const tc=$('#tc'),sc=$('#scene'),secs=$$('[data-scene]');
+let tick=false;
+const pad=n=>String(n).padStart(2,'0');
+const upd=()=>{
+  tick=false;
+  const max=document.documentElement.scrollHeight-innerHeight,p=max>0?scrollY/max:0,f=Math.round(p*90*25);
+  tc.textContent='00:'+pad(Math.floor(f/1500))+':'+pad(Math.floor(f/25)%60)+':'+pad(f%25);
+  let cur=secs[0];for(const s of secs){if(s.getBoundingClientRect().top<innerHeight*.5)cur=s}
+  sc.textContent=cur.dataset.scene;
+};
+addEventListener('scroll',()=>{if(!tick){tick=true;requestAnimationFrame(upd)}},{passive:true});upd();
+
+// Lightbox mit Ton
+const lb=$('#lb'),box=$('#lbbox');let was=[],last=null;
+const open=c=>{
+  last=c;was=$$('video[data-src]').filter(v=>!v.paused);was.forEach(v=>v.pause());
+  box.innerHTML=c.dataset.mp4
+    ?'<video src="'+c.dataset.mp4+'" controls autoplay playsinline></video>'
+    :'<iframe src="https://player.vimeo.com/video/'+c.dataset.id+'?'+(c.dataset.h?'h='+c.dataset.h+'&':'')+'autoplay=1&title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" title="Video"></iframe>';
+  lb.classList.add('open');$('#lbclose').focus();
+};
+const close=()=>{lb.classList.remove('open');box.innerHTML='';if(!calm)was.forEach(v=>v.play().catch(()=>{}));was=[];last&&last.focus()};
+$$('.clip').forEach(c=>{c.tabIndex=0;c.setAttribute('role','button');c.addEventListener('click',()=>open(c));c.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open(c)}})});
+$('#lbclose').onclick=close;lb.addEventListener('click',e=>{if(e.target===lb)close()});addEventListener('keydown',e=>{if(e.key==='Escape'&&lb.classList.contains('open'))close()});
+})();
+</script>
+<!-- GoatCounter erst einschalten, wenn das Konto luminaframes existiert und der Absatz in der Datenschutzerklärung live ist:
+<script data-goatcounter="https://luminaframes.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+-->
+</body>
+</html>
