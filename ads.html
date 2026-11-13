@@ -154,13 +154,24 @@ blockquote.q{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font
 .probe ol b{display:block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:6px}
 .probe ol li{font-size:16px}
 
-/* 8 · Für wen */
+/* 8 · Zusammenarbeit */
+.tier{display:grid;grid-template-columns:120px minmax(0,1fr) minmax(0,1.1fr);gap:8px clamp(16px,4vw,56px);padding:clamp(22px,3.2vw,38px) 0;border-bottom:1px solid var(--rule);align-items:baseline}
+.tier .n{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--grey)}
+.tier h3{font-size:clamp(24px,3.2vw,44px);font-weight:800;text-transform:uppercase;letter-spacing:-.035em;line-height:1}
+.tier .pr{display:block;margin-top:12px;font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:400;font-size:clamp(30px,3.6vw,50px);line-height:1;color:var(--amber);letter-spacing:-.01em}
+.tier .pr small{font-family:Manrope,system-ui,sans-serif;font-style:normal;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--grey);margin-left:8px}
+.tier p{color:var(--soft);max-width:50ch}
+.garant{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(16px,3vw,44px);margin-top:clamp(36px,5vw,60px)}
+.garant h3{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:400;font-size:clamp(24px,2.6vw,36px);line-height:1.1;margin-bottom:10px}
+.garant p{color:var(--soft);max-width:46ch}
+
+/* 9 · Für wen */
 .fit{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(20px,5vw,72px)}
 .fit h3{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--grey);padding-bottom:12px;border-bottom:1px solid var(--rule);margin-bottom:6px}
 .fit li{list-style:none;padding:14px 0;border-bottom:1px solid var(--rule);color:var(--soft)}
 .fit .yes li{color:var(--ink)}
 
-/* 9 · Fragen */
+/* 10 · Fragen */
 details{border-bottom:1px solid var(--rule)}
 details:first-of-type{border-top:1px solid var(--rule)}
 summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;font-weight:700;font-size:clamp(18px,2vw,24px);letter-spacing:-.01em}
@@ -202,8 +213,8 @@ footer a:hover{color:var(--ink)}
 @media (max-width:900px){
   .hero .wrap{grid-template-columns:1fr}
   .reel{max-width:520px}
-  .row,.take{grid-template-columns:1fr;gap:8px}
-  .three,.q2,.fit,.me,.probe ol{grid-template-columns:1fr}
+  .row,.take,.tier{grid-template-columns:1fr;gap:8px}
+  .three,.q2,.fit,.me,.probe ol,.garant{grid-template-columns:1fr}
   .works{grid-template-columns:repeat(2,1fr)}
   .me img{max-width:260px}
   .stats{gap:12px}
@@ -290,7 +301,7 @@ footer a:hover{color:var(--ink)}
       <div class="take rv"><span class="n">Take 01</span><h3>Research</h3><p>Wir schauen uns an, was bei euch und eurer Konkurrenz gerade läuft: aktive Ads, Reviews, Einwände eurer Kunden.</p></div>
       <div class="take rv"><span class="n">Take 02</span><h3>Angles und Skripte</h3><p>Daraus entstehen die Angles und fertige Skripte. Ihr gebt frei, bevor produziert wird.</p></div>
       <div class="take rv"><span class="n">Take 03</span><h3>Creatives</h3><p>Aus eurem Material, mit UGC oder per KI, wenn kein Footage da ist.</p></div>
-      <div class="take rv"><span class="n">Take 04</span><h3>Schnitt</h3><p>Jedes Creative als Ad-Set in 9:16, 4:5 und 1:1, fertig zum Hochladen. Zwei Korrekturrunden sind inklusive.</p></div>
+      <div class="take rv"><span class="n">Take 04</span><h3>Schnitt</h3><p>Jedes Creative als Ad-Set in 9:16, 4:5 und 1:1, fertig zum Hochladen. Eine gesammelte Korrekturrunde je Ad-Set ist inklusive.</p></div>
       <div class="take rv"><span class="n">Take 05</span><h3>Nächste Runde</h3><p>Ihr schickt die Zahlen aus dem Test. Was gewinnt, bauen wir weiter. Was verliert, fliegt raus.</p></div>
     </div>
     <p class="note rv">Kampagnen-Setup und Media Buying bleiben bei euch oder eurer Agentur. Wir liefern die Creatives.</p>
@@ -344,9 +355,26 @@ footer a:hover{color:var(--ink)}
   </div>
 </section>
 
-<section data-scene="08 · Für wen">
+<section id="zusammenarbeit" data-scene="08 · Zusammenarbeit">
   <div class="wrap">
-    <div class="sh"><h2 class="big rv">Passt das <span class="it amber">zu euch?</span></h2><span class="label">Szene 08</span></div>
+    <div class="sh"><h2 class="big rv">Drei Wege <span class="it amber">zur nächsten Gewinner-Ad</span></h2><span class="label">Szene 08</span></div>
+    <div class="rows">
+      <div class="tier rv"><span class="n">Stufe 01</span><div><h3>Creative Audit</h3><span class="pr">390 €</span></div><p>Wir lesen eure aktiven Ads, die von drei Wettbewerbern und eure Zahlen je Ad. Ihr bekommt die drei größten Baustellen, drei Angles, neun Hook-Ideen und einen fertig gebauten neuen Einstieg für eure beste Ad. In fünf Werktagen, mit Call. Bucht ihr danach den Sprint, wird das Audit voll angerechnet.</p></div>
+      <div class="tier rv"><span class="n">Stufe 02</span><div><h3>Creative Test Sprint</h3><span class="pr">1.190 €</span></div><p>Audit inklusive. Drei Angles, drei Skripte zur Freigabe und drei Ad-Sets mit je drei echten Hooks: neun Varianten in 9:16, 4:5 und 1:1, fertig sieben Tage nach dem Kick-off. Nach 14 Tagen Laufzeit gehen wir eure Zahlen gemeinsam durch.</p></div>
+      <div class="tier rv"><span class="n">Stufe 03</span><div><h3>Creative Growth Partner</h3><span class="pr">2.000 €<small>pro Monat</small></span></div><p>Sechs Ad-Sets mit 18 Hooks im Monat, Research und Skripte inklusive. Alle sieben Tage kommen zwei Ad-Sets, zweimal im Monat bauen wir die nächste Runde aus euren Zahlen. Monatlich kündbar.</p></div>
+    </div>
+    <div class="garant">
+      <div class="rv"><h3>Pünktlich oder Geld zurück.</h3><p>Liegen eure Ad-Sets nicht zum vereinbarten Termin bei euch, bekommt ihr euer Geld zurück und behaltet, was schon fertig ist.</p></div>
+      <div class="rv"><h3>Kein Gewinner? Neue Einstiege.</h3><p>Schlägt keine unserer Varianten eure bisher beste Ad bei der Hook-Rate, bauen wir drei neue Einstiege ohne Aufpreis.</p></div>
+    </div>
+    <p class="fine">Die Garantien gelten bei vollständigem Material, Freigaben innerhalb von 48 Stunden, Zahlung vor Start und mindestens 14 Tagen und 1.000 Impressionen je Variante. Umsatz oder ROAS versprechen wir nicht, das hängt an Produkt, Angebot und Budget. KI-Credits kommen nur dazu, wenn ihr uns keinen Zugang zu euren Konten gebt.</p>
+    <div class="after"><span>Erst kennenlernen? Die Hook-Variante oben ist kostenlos.</span><a class="k" href="https://calendly.com/cutsbypatrick1/30min" target="_blank" rel="noopener" data-goatcounter-click="ads-stufen-call">Gespräch buchen</a></div>
+  </div>
+</section>
+
+<section data-scene="09 · Für wen">
+  <div class="wrap">
+    <div class="sh"><h2 class="big rv">Passt das <span class="it amber">zu euch?</span></h2><span class="label">Szene 09</span></div>
     <div class="fit">
       <ul class="yes rv"><h3>Ja, wenn</h3><li>ihr eine D2C-Brand im DACH-Raum führt</li><li>ihr laufend Budget auf Meta oder TikTok habt</li><li>ihr jeden Monat neue Creatives testen wollt</li></ul>
       <ul class="rv"><h3>Eher nicht, wenn</h3><li>ihr nur ein einzelnes Video sucht</li><li>ihr noch keine Ads schaltet</li><li>ihr jemanden für Kampagnen-Setup und Media Buying braucht</li></ul>
@@ -354,10 +382,10 @@ footer a:hover{color:var(--ink)}
   </div>
 </section>
 
-<section data-scene="09 · Fragen">
+<section data-scene="10 · Fragen">
   <div class="wrap">
-    <div class="sh"><h2 class="big rv">Was vorher <span class="it amber">gefragt wird</span></h2><span class="label">Szene 09</span></div>
-    <details><summary><i class="mono">01</i><span>Was kostet das?</span></summary><p>Das hängt davon ab, wie viele Ad-Sets ihr pro Monat testen wollt. Im Gespräch bekommt ihr eine klare Zahl und ein festes Monatsangebot.</p></details>
+    <div class="sh"><h2 class="big rv">Was vorher <span class="it amber">gefragt wird</span></h2><span class="label">Szene 10</span></div>
+    <details><summary><i class="mono">01</i><span>Was kostet das?</span></summary><p>Das Audit kostet 390 €, der Test Sprint 1.190 € (Audit inklusive) und der Growth Partner 2.000 € im Monat, monatlich kündbar. Die Hook-Variante zum Kennenlernen ist kostenlos. KI-Credits kommen nur dazu, wenn ihr uns keinen Zugang zu euren Konten gebt.</p></details>
     <details><summary><i class="mono">02</i><span>Wie schnell bekommen wir etwas zu sehen?</span></summary><p>Schnitt aus eurem Material: Die erste Fassung steht nach 48 Stunden. Ad-Sets mit Research und Skript planen wir im Kick-off mit festem Liefertermin.</p></details>
     <details><summary><i class="mono">03</i><span>Was braucht ihr von uns?</span></summary><p>Zugriff auf euer Material (ein Drive-Link reicht), eure Marken-Vorgaben und nach jedem Test die Zahlen. Den Rest machen wir.</p></details>
     <details><summary><i class="mono">04</i><span>Wir haben kaum eigenes Footage. Geht das trotzdem?</span></summary><p>Ja. Fehlende Szenen entstehen per KI oder mit UGC. Die KI-Ad weiter oben ist komplett ohne Dreh entstanden.</p></details>
@@ -367,7 +395,7 @@ footer a:hover{color:var(--ink)}
   </div>
 </section>
 
-<section data-scene="10 · Gründer">
+<section data-scene="11 · Gründer">
   <div class="wrap me">
     <img class="rv" src="patrick.jpg" alt="Patrick Pingel, Gründer von Lumina Frames" width="720" height="720" loading="lazy">
     <div class="rv">
@@ -379,7 +407,7 @@ footer a:hover{color:var(--ink)}
   </div>
 </section>
 
-<section class="end" data-scene="11 · Abspann">
+<section class="end" data-scene="12 · Abspann">
   <div class="wrap">
     <h2 class="big rv">Welche Ad gewinnt <span class="it amber">als Nächstes?</span></h2>
     <div class="cta rv">
